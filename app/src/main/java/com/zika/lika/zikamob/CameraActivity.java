@@ -8,11 +8,18 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class CameraActivity extends Activity {
 
     private ImageButton btn_camera;
     private ImageView iv_photo;
+    private TextView txt_datetime;
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
@@ -23,6 +30,7 @@ public class CameraActivity extends Activity {
 
         btn_camera = (ImageButton) findViewById(R.id.camera_btn_camera);
         iv_photo = (ImageView) findViewById(R.id.camera_iv_photo);
+        txt_datetime = (TextView) findViewById(R.id.camera_txt_datetime);
 
         btn_camera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +48,10 @@ public class CameraActivity extends Activity {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             iv_photo.setImageBitmap(imageBitmap);
+            Date currentTime = Calendar.getInstance().getTime();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            sdf.setTimeZone(TimeZone.getTimeZone("GMT-3"));
+            txt_datetime.setText(sdf.format(currentTime));
         }
 
     }
