@@ -3,6 +3,7 @@ package com.zika.lika.zikamob;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,9 +36,11 @@ public class CommunitationDBActivity extends Activity {
     private EditText edt_description;
     private Button btn_submit;
 
+    private String name;
+    private String description;
 
-    private static String url_insert_test = "http://localhost/DB_Server/inserir_teste.php";
-    private static String url_select_test = "http://192.168.1.23/DB_Server/selecionar_teste.php?id=1";
+    private static String url_inserir_test = "http://192.168.25.10/DB_Server/inserir_teste.php?nome={name}&descricao={description}";
+    private static String url_select_test = "http://192.168.25.10/DB_Server/selecionar_teste.php?id=1";
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
 
@@ -53,6 +56,8 @@ public class CommunitationDBActivity extends Activity {
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                name = edt_name.getText().toString();
+                description = edt_description.getText().toString();
                 new InsertTestTask().execute();
             }
         });
@@ -71,8 +76,10 @@ public class CommunitationDBActivity extends Activity {
             try {
 
                 HttpClient client = new DefaultHttpClient();
-                HttpGet request = new HttpGet();
-                request.setURI(new URI(url_select_test));
+                HttpPost request = new HttpPost();
+                //HttpGet request = new HttpGet();
+
+                request.setURI(new URI(url_inserir_test.replace("{name}", name).replace("{description}", description)));
                 HttpResponse response = client.execute(request);
 
                 BufferedReader in = new BufferedReader(new
@@ -82,8 +89,10 @@ public class CommunitationDBActivity extends Activity {
                 String line="";
 
                 while ((line = in.readLine()) != null) {
-                    sb.append(line);
-                    break;
+                    if (line.contains("success")) {
+                        sb.append(line);
+                     }
+                    //break;
                 }
 
                 in.close();
