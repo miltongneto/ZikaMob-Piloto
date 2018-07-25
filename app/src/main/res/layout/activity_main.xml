@@ -35,4 +35,31 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="Comunicação BD" />
+
+    <Button
+        android:id="@+id/main_btn_login"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="Login" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuário Logado:"/>
+
+        <TextView
+            android:id="@+id/main_txt_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nennum"
+            android:layout_marginLeft="5dp"/>
+
+    </LinearLayout>
+
 </LinearLayout>

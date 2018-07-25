@@ -39,8 +39,8 @@ public class CommunitationDBActivity extends Activity {
     private String name;
     private String description;
 
-    private static String url_inserir_test = "http://192.168.25.10/DB_Server/inserir_teste.php?nome={name}&descricao={description}";
-    private static String url_select_test = "http://192.168.25.10/DB_Server/selecionar_teste.php?id=1";
+    private static String url_inserir_test = "http://150.161.248.222/DB_Server/inserir_teste.php?nome={name}&descricao={description}";
+    private static String url_select_test = "http://150.161.248.222/DB_Server/selecionar_teste.php?id=1";
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
 
