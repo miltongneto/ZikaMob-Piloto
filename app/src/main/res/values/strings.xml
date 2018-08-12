@@ -3,4 +3,28 @@
     <string name="title_activity_camera">CameraActivity</string>
     <string name="facebook_app_id">277038796387098</string>
     <string name="fb_login_protocol_scheme">fb277038796387098</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="text_focus_found">Você indentificou um foco?\n Vamos registrar!</string>
+
+    <string name="take_photo">Tire uma foto</string>
+
+    <string name="focus_info">Informações sobre o foco</string>
+    <string name="local_focus">Local do foco</string>
+    <string name="type_focus">Tipo do foco</string>
+    <string name="how_resolve">Como combater</string>
+    <string name="obs">Obeservações</string>
+    <string name="confirm">Confirmar</string>
+
 </resources>
